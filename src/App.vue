@@ -30,13 +30,13 @@
 	const play = (choice) => {
 		const choices = ['rock', 'paper', 'scissors'];
 		const random = Math.floor(Math.random() * choices.length);
-		
-		computerChoice.value = Math.floor(Math.random() * choices.length)		
+
+		computerChoice.value = Math.floor(Math.random() * choices.length);
 		userChoice.value = choice;
 		verdict.value = choices[random];
 
 		const outcome = outcomes[choice][verdict.value];
-		
+
 		if (outcome === 'win') {
 			wins.value++;
 			verdict.value = 'You win!';
@@ -48,13 +48,19 @@
 			verdict.value = 'It is a draw!';
 		}
 
-		saveGame()
+		saveGame();
 	};
 
 	const saveGame = () => {
 		localStorage.setItem('wins', wins.value);
 		localStorage.setItem('losses', losses.value);
 		localStorage.setItem('draws', draws.value);
+	};
+
+	const loadGame = () => {
+		wins.value = localStorage.getItem('wins');
+		losses.value = localStorage.getItem('losses');
+		draws.value = localStorage.getItem('draws');
 	};
 	
 </script>
