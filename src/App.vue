@@ -47,7 +47,16 @@
 			draws.value++;
 			verdict.value = 'It is a draw!';
 		}
+
+		saveGame()
 	};
+
+	const saveGame = () => {
+		localStorage.setItem('wins', wins.value);
+		localStorage.setItem('losses', losses.value);
+		localStorage.setItem('draws', draws.value);
+	};
+	
 </script>
 
 <template>
