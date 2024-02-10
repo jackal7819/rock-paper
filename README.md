@@ -1,29 +1,24 @@
-# .
+# Rock Paper Scissors Game
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to the Rock Paper Scissors game project! This is a simple web-based implementation of the classic game "Rock Paper Scissors", built with JavaScript, Vue.js, Tailwind CSS, and Vite.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Simple Gameplay:** Play the classic Rock Paper Scissors game against the computer.
+- **Responsive Design:** Enjoy the game on various devices, thanks to the responsive design.
+- **Modern Technologies:** Built with modern web technologies like Vue.js and Tailwind CSS.
+- **Fast Development:** Developed using Vite, a fast build tool for web development.
 
-## Customize configuration
+## Technologies Used
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- **JavaScript:** The main programming language used for game logic and interactivity.
+- **Vue.js:** A progressive JavaScript framework used for building the user interface.
+- **Tailwind CSS:** A utility-first CSS framework used for styling the game components.
+- **Vite:** A modern build tool that provides a fast development experience for web projects.
 
-## Project Setup
+## Usage
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- Choose your move (Rock, Paper, or Scissors) by clicking on the corresponding button.
+- The computer will randomly select its move.
+- The result of the round will be displayed on the screen.
+- Play as many rounds as you like and enjoy the game!

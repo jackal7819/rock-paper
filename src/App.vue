@@ -63,9 +63,9 @@
 	};
 
 	const loadGame = () => {
-		wins.value = localStorage.getItem('wins');
-		losses.value = localStorage.getItem('losses');
-		draws.value = localStorage.getItem('draws');
+		wins.value = parseInt(localStorage.getItem('wins')) || 0;
+		losses.value = parseInt(localStorage.getItem('losses')) || 0;
+		draws.value = parseInt(localStorage.getItem('draws')) || 0;
 	};
 
 	const resetRound = () => {
@@ -87,33 +87,33 @@
 
 <template>
 	<div
-		class="flex flex-col min-h-screen text-center bg-slate-900 text-slate-400"
+		class="flex flex-col items-center justify-center min-h-screen text-center bg-slate-900 text-slate-400"
 	>
 		<header class="container p-10 mx-auto">
 			<h1 class="text-4xl underline underline-offset-8">
 				Rock Paper Scissors
 			</h1>
 		</header>
-		<main class="container flex-1 p-10 mx-auto">
+		<main class="container p-10 mx-auto">
 			<div
 				v-if="userChoice === null"
-				class="flex items-center justify-center -mx-10"
+				class="flex flex-col items-center justify-center gap-5 sm:flex-row"
 			>
 				<button
 					@click="play('rock')"
-					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-green-500"
+					class="w-40 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-green-500"
 				>
 					<img src="./assets/rock.svg" alt="rock" class="w-full" />
 				</button>
 				<button
 					@click="play('rock')"
-					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-pink-500"
+					class="w-40 p-5 mx-10 duration-300 -5 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-pink-500"
 				>
 					<img src="./assets/paper.svg" alt="papers" class="w-full" />
 				</button>
 				<button
 					@click="play('rock')"
-					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-blue-500"
+					class="w-40 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-blue-500"
 				>
 					<img
 						src="./assets/scissors.svg"
@@ -137,8 +137,18 @@
 				<button
 					@click="resetRound"
 					class="px-4 py-2 text-lg text-[#262626] duration-300 rounded bg-slate-400 hover:bg-pink-500"
-				>Reset</button>
+				>
+					Reset
+				</button>
 			</div>
+
+			<h2 class="mt-12 mb-4 text-3xl">
+				Wins: {{ wins }} - Losses: {{ losses }} - Draws: {{ draws }}
+			</h2>
+
+			<h2 class="text-2xl">
+				Win rate: {{ Math.round(winPercentage) }} %
+			</h2>
 		</main>
 	</div>
 </template>
