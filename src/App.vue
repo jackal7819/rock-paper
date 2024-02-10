@@ -1,5 +1,5 @@
 <script setup>
-	import { ref, mounted, computed } from 'vue';
+	import { ref, onMounted, computed } from 'vue';
 
 	const wins = ref(0);
 	const losses = ref(0);
@@ -73,10 +73,55 @@
 		computerChoice.value = null;
 		verdict.value = null;
 	};
+
+	onMounted(() => {
+		loadGame();
+
+		window.addEventListener('keypress', (event) => {
+			if (event.key === 'r') {
+				resetRound();
+			}
+		});
+	});
 </script>
 
 <template>
-	<main>
-		<h1 class="text-4xl underline">Rock Paper Scissors</h1>
-	</main>
+	<div
+		class="flex flex-col min-h-screen text-center bg-slate-900 text-slate-400"
+	>
+		<header class="container p-10 mx-auto">
+			<h1 class="text-4xl underline underline-offset-8">
+				Rock Paper Scissors
+			</h1>
+		</header>
+		<main class="container flex-1 p-10 mx-auto">
+			<div
+				v-if="userChoice === null"
+				class="flex items-center justify-center -mx-10"
+			>
+				<button
+					@click="play('rock')"
+					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-green-500"
+				>
+					<img src="./assets/rock.svg" alt="rock" class="w-full" />
+				</button>
+				<button
+					@click="play('rock')"
+					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-pink-500"
+				>
+					<img src="./assets/paper.svg" alt="papers" class="w-full" />
+				</button>
+				<button
+					@click="play('rock')"
+					class="w-64 p-5 mx-10 duration-300 rounded-xl bg-slate-400 shadow-slate-400 hover:bg-blue-500"
+				>
+					<img
+						src="./assets/scissors.svg"
+						alt="scissors"
+						class="w-full"
+					/>
+				</button>
+			</div>
+		</main>
+	</div>
 </template>
