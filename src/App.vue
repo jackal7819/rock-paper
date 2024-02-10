@@ -36,7 +36,7 @@
 		const choices = ['rock', 'paper', 'scissors'];
 		const random = Math.floor(Math.random() * choices.length);
 
-		computerChoice.value = Math.floor(Math.random() * choices.length);
+		computerChoice.value = choices[random];
 		userChoice.value = choice;
 		verdict.value = choices[random];
 
@@ -121,6 +121,23 @@
 						class="w-full"
 					/>
 				</button>
+			</div>
+			<div v-else>
+				<h2 class="mb-4 text-3xl">
+					You picked
+					<span class="text-green-500">{{ userChoice }}</span>
+				</h2>
+				<h2 class="mb-4 text-3xl">
+					The computer picked
+					<span class="text-yellow-500">{{ computerChoice }}</span>
+				</h2>
+				<h2 class="mb-12 text-6xl">
+					{{ verdict }}
+				</h2>
+				<button
+					@click="resetRound"
+					class="px-4 py-2 text-lg text-[#262626] duration-300 rounded bg-slate-400 hover:bg-pink-500"
+				>Reset</button>
 			</div>
 		</main>
 	</div>
