@@ -67,6 +67,12 @@
 		losses.value = localStorage.getItem('losses');
 		draws.value = localStorage.getItem('draws');
 	};
+
+	const resetRound = () => {
+		userChoice.value = null;
+		computerChoice.value = null;
+		verdict.value = null;
+	};
 </script>
 
 <template>
