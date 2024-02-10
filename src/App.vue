@@ -27,6 +27,11 @@
 		},
 	};
 
+	const winPercentage = computed(() => {
+		const total = wins.value + losses.value + draws.value;
+		return total ? Math.round((wins.value / total) * 100) : 0;
+	});
+
 	const play = (choice) => {
 		const choices = ['rock', 'paper', 'scissors'];
 		const random = Math.floor(Math.random() * choices.length);
@@ -62,7 +67,6 @@
 		losses.value = localStorage.getItem('losses');
 		draws.value = localStorage.getItem('draws');
 	};
-	
 </script>
 
 <template>
